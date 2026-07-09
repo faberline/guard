@@ -1,6 +1,6 @@
 ---
 id: semantic-guard-install-script
-summary: Lossless text-source-unit coverage for `projects/guard/install.sh`.
+summary: Lossless text-source-unit coverage for `apps/guard/install.sh`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -16,7 +16,7 @@ fill_sections: [overview, source, changes]
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Lossless text-source-unit coverage for `projects/guard/install.sh`.
+Lossless text-source-unit coverage for `apps/guard/install.sh`.
 
 ## Source
 <!-- type: text-source-unit lang: bash -->
@@ -53,10 +53,10 @@ fi
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/install.sh"
+  - path: "apps/guard/install.sh"
     action: modify
     section: text-source-unit
     impl_mode: codegen
     description: |
-      text-source-unit (td_ast) source for `projects/guard/install.sh` captured during guard standardization onto the codegen ladder.
+      text-source-unit (td_ast) source for `apps/guard/install.sh` captured during guard standardization onto the codegen ladder.
 ```

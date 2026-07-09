@@ -1,6 +1,6 @@
 ---
 id: projects-guard-src-lib-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/src/lib.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/src/lib.rs`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -11,20 +11,20 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/src/lib.rs
+# Standardized apps/guard/src/lib.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/src/lib.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/src/lib.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `evidence` | projects/guard/src/lib.rs | module | pub | 9 |  |
-| `report` | projects/guard/src/lib.rs | module | pub | 10 |  |
-| `scan` | projects/guard/src/lib.rs | module | pub | 11 |  |
+| `evidence` | apps/guard/src/lib.rs | module | pub | 9 |  |
+| `report` | apps/guard/src/lib.rs | module | pub | 10 |  |
+| `scan` | apps/guard/src/lib.rs | module | pub | 11 |  |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
@@ -53,10 +53,10 @@ pub use scan::{default_languages, scan_path, PolicyProfile, ScanOptions};
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/src/lib.rs"
+  - path: "apps/guard/src/lib.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/src/lib.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/src/lib.rs` captured during guard standardization onto the codegen ladder.
 ```

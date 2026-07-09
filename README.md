@@ -62,10 +62,10 @@ non-security lint remain outside guard.
 
 Last verified: 2026-06-13
 Production readiness: ready for static security, security lint, and configured dynamic evidence
-Tech design root: `projects/guard/tech-design`
+Tech design root: `apps/guard/tech-design`
 Source ownership: TD-first source snapshots
 Test gate: `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo test -p guard -p guard-cli`
-CLI smoke: `target/debug/guard scan projects/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target projects/guard`
+CLI smoke: `target/debug/guard scan apps/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target apps/guard`
 Health gate: `aw health --project guard`
 Explicit non-goals: AST ownership, env isolation, e2e orchestration, profiling, benchmark comparison
 
@@ -95,12 +95,12 @@ Required Verification: smoke
 Promise:
 guard scans source/config files with compass and emits a deterministic `guard.report/1` security findings envelope.
 Gate Inventory:
-- `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo test -p guard`; `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo run -p guard-cli --bin guard -- scan projects/guard --compact`
+- `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo test -p guard`; `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo run -p guard-cli --bin guard -- scan apps/guard --compact`
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
 | Compass-backed diagnostic scan | epic | - | implemented | verified | smoke | `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo test -p guard scan::tests::detects_javascript_eval_as_security_finding` |
-| JSON report envelope | epic | - | implemented | verified | smoke | `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo run -p guard-cli --bin guard -- scan projects/guard --compact` |
+| JSON report envelope | epic | - | implemented | verified | smoke | `CC=/usr/bin/cc PATH="$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:/usr/bin:/bin:/usr/sbin:/sbin:$HOME/.cargo/bin" cargo run -p guard-cli --bin guard -- scan apps/guard --compact` |
 
 ### Security Policy Profile
 
@@ -134,12 +134,12 @@ Required Verification: smoke
 Promise:
 AW EC and health treat guard output as first-class security evidence.
 Gate Inventory:
-- `target/debug/guard scan projects/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target projects/guard`
+- `target/debug/guard scan apps/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target apps/guard`
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
 | AW health security metric | epic | - | implemented | verified | smoke | `./target/debug/aw ec check --project guard` |
-| EC security evidence command | epic | - | implemented | verified | smoke | `target/debug/guard scan projects/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target projects/guard` |
+| EC security evidence command | epic | - | implemented | verified | smoke | `target/debug/guard scan apps/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target apps/guard` |
 
 ### Dynamic Security Evidence
 
@@ -153,21 +153,21 @@ Required Verification: smoke
 Promise:
 guard will compose static findings with vat-isolated execution, rig attack journeys, and meter resource evidence. Legacy arena evidence can still be passed through compatibility flags, but it is not required for production readiness.
 Gate Inventory:
-- `target/debug/guard scan projects/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target projects/guard`
+- `target/debug/guard scan apps/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target apps/guard`
 
 | Work Root | Kind | WI | Impl | Verification | Maturity | Gate / Evidence |
 |---|---|---:|---|---|---|---|
-| Vat isolated security runner | epic | - | implemented | verified | smoke | `target/debug/guard scan projects/guard --compact --no-persist --vat-runner guard-security-smoke` |
-| Rig exploit journey bridge | epic | - | implemented | verified | smoke | `target/debug/rig run --scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --compact` |
-| Meter DoS/resource evidence bridge | epic | - | implemented | verified | smoke | `target/debug/guard scan projects/guard --compact --no-persist --meter-target projects/guard` |
+| Vat isolated security runner | epic | - | implemented | verified | smoke | `target/debug/guard scan apps/guard --compact --no-persist --vat-runner guard-security-smoke` |
+| Rig exploit journey bridge | epic | - | implemented | verified | smoke | `target/debug/rig run --scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --compact` |
+| Meter DoS/resource evidence bridge | epic | - | implemented | verified | smoke | `target/debug/guard scan apps/guard --compact --no-persist --meter-target apps/guard` |
 
 
 ## Build & test
 
 ```bash
 cargo test -p guard -p guard-cli
-target/debug/guard scan projects/guard --profile security-lint --compact --no-persist
-projects/guard/build.sh debug
+target/debug/guard scan apps/guard --profile security-lint --compact --no-persist
+apps/guard/build.sh debug
 ```
 
 ## Non-goals

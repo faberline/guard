@@ -20,7 +20,7 @@ cmd = [
 if [ -n "$VAT_CONFIG_ROOT" ]; then
   exec "$VAT_CONFIG_ROOT/../../target/debug/guard" scan . --profile security-lint --compact --no-persist
 else
-  exec target/debug/guard scan projects/guard --profile security-lint --compact --no-persist
+  exec target/debug/guard scan apps/guard --profile security-lint --compact --no-persist
 fi
 ''',
 ]

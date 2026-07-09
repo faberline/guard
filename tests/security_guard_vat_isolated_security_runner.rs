@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-vat-isolated-security-runner
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-vat-isolated-security-runner
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-vat-isolated-security-runner
@@ -7,7 +7,7 @@
 // @contract vat-isolated-security-runner
 // @category security
 // @required_for_production true
-// @command target/debug/guard scan projects/guard --compact --no-persist --vat-runner guard-security-smoke
+// @command target/debug/guard scan apps/guard --compact --no-persist --vat-runner guard-security-smoke
 // AW-EC-END
 
 // Contract: guard can fold a vat-isolated runner into its report
@@ -15,7 +15,7 @@
 #[test]
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn guard_vat_isolated_security_runner() {
-    let command = "target/debug/guard scan projects/guard --compact --no-persist --vat-runner guard-security-smoke";
+    let command = "target/debug/guard scan apps/guard --compact --no-persist --vat-runner guard-security-smoke";
     let id = "guard-vat-isolated-security-runner";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {

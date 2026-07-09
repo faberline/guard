@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-meter-dos-resource-evidence-bridge
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-meter-dos-resource-evidence-bridge
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-meter-dos-resource-evidence-bridge
@@ -7,7 +7,7 @@
 // @contract meter-dos-resource-evidence-bridge
 // @category security
 // @required_for_production true
-// @command target/debug/guard scan projects/guard --compact --no-persist --meter-target projects/guard
+// @command target/debug/guard scan apps/guard --compact --no-persist --meter-target apps/guard
 // AW-EC-END
 
 // Contract: guard can fold meter resource evidence into its report
@@ -15,7 +15,7 @@
 #[test]
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn guard_meter_dos_resource_evidence_bridge() {
-    let command = "target/debug/guard scan projects/guard --compact --no-persist --meter-target projects/guard";
+    let command = "target/debug/guard scan apps/guard --compact --no-persist --meter-target apps/guard";
     let id = "guard-meter-dos-resource-evidence-bridge";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {

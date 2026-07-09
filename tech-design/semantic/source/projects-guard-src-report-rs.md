@@ -1,6 +1,6 @@
 ---
 id: projects-guard-src-report-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/src/report.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/src/report.rs`.
 capability_refs:
   - id: security-policy-profile
     role: primary
@@ -11,38 +11,38 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/src/report.rs
+# Standardized apps/guard/src/report.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/src/report.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/src/report.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `Completion` | projects/guard/src/report.rs | struct | pub | 135 |  |
-| `Finding` | projects/guard/src/report.rs | struct | pub | 74 |  |
-| `GuardReport` | projects/guard/src/report.rs | struct | pub | 166 |  |
-| `IntegrationMap` | projects/guard/src/report.rs | struct | pub | 143 |  |
-| `Location` | projects/guard/src/report.rs | struct | pub | 64 |  |
-| `OverallStatus` | projects/guard/src/report.rs | enum | pub | 41 |  |
-| `SCHEMA_VERSION` | projects/guard/src/report.rs | constant | pub | 8 |  |
-| `Severity` | projects/guard/src/report.rs | enum | pub | 13 |  |
-| `Summary` | projects/guard/src/report.rs | struct | pub | 87 |  |
-| `exit_code` | projects/guard/src/report.rs | function | pub | 49 | exit_code(self) -> i32 |
-| `finding_id` | projects/guard/src/report.rs | function | pub | 350 | finding_id(rule: &str, path: &str, line: u32) -> String |
-| `from_findings` | projects/guard/src/report.rs | function | pub | 104 | from_findings(         files_scanned: usize,         diagnostics_scanned: usize,         findings: &[Finding],         evidence: &[ExternalEvidence],     ) -> Self |
-| `from_scan` | projects/guard/src/report.rs | function | pub | 185 | from_scan(         target: impl Into<String>,         files_scanned: usize,         diagnostics_scanned: usize,         findings: Vec<Finding>,     ) -> Self |
-| `from_scan_with_evidence` | projects/guard/src/report.rs | function | pub | 201 | from_scan_with_evidence(         target: impl Into<String>,         policy_profile: impl Into<String>,         files_scanned: usize,         diagnostics_scanned: usize,         mut findings: Vec<Finding>,         evidence: Vec<ExternalEvidence>,     ) -> Self |
-| `is_actionable` | projects/guard/src/report.rs | function | pub | 33 | is_actionable(self) -> bool |
-| `is_clean` | projects/guard/src/report.rs | function | pub | 57 | is_clean(self) -> bool |
-| `persist` | projects/guard/src/report.rs | function | pub | 314 | persist(&self, dir: &Path) |
-| `rank` | projects/guard/src/report.rs | function | pub | 23 | rank(self) -> u8 |
-| `read_last` | projects/guard/src/report.rs | function | pub | 324 | read_last(dir: &Path) -> anyhow::Result<Self> |
-| `stub` | projects/guard/src/report.rs | function | pub | 262 | stub(verb: &str, prompt: impl Into<String>) -> Self |
-| `tool_error` | projects/guard/src/report.rs | function | pub | 285 | tool_error(         verb: &str,         target: impl Into<String>,         code: u8,         message: impl Into<String>,     ) -> Self |
+| `Completion` | apps/guard/src/report.rs | struct | pub | 135 |  |
+| `Finding` | apps/guard/src/report.rs | struct | pub | 74 |  |
+| `GuardReport` | apps/guard/src/report.rs | struct | pub | 166 |  |
+| `IntegrationMap` | apps/guard/src/report.rs | struct | pub | 143 |  |
+| `Location` | apps/guard/src/report.rs | struct | pub | 64 |  |
+| `OverallStatus` | apps/guard/src/report.rs | enum | pub | 41 |  |
+| `SCHEMA_VERSION` | apps/guard/src/report.rs | constant | pub | 8 |  |
+| `Severity` | apps/guard/src/report.rs | enum | pub | 13 |  |
+| `Summary` | apps/guard/src/report.rs | struct | pub | 87 |  |
+| `exit_code` | apps/guard/src/report.rs | function | pub | 49 | exit_code(self) -> i32 |
+| `finding_id` | apps/guard/src/report.rs | function | pub | 350 | finding_id(rule: &str, path: &str, line: u32) -> String |
+| `from_findings` | apps/guard/src/report.rs | function | pub | 104 | from_findings(         files_scanned: usize,         diagnostics_scanned: usize,         findings: &[Finding],         evidence: &[ExternalEvidence],     ) -> Self |
+| `from_scan` | apps/guard/src/report.rs | function | pub | 185 | from_scan(         target: impl Into<String>,         files_scanned: usize,         diagnostics_scanned: usize,         findings: Vec<Finding>,     ) -> Self |
+| `from_scan_with_evidence` | apps/guard/src/report.rs | function | pub | 201 | from_scan_with_evidence(         target: impl Into<String>,         policy_profile: impl Into<String>,         files_scanned: usize,         diagnostics_scanned: usize,         mut findings: Vec<Finding>,         evidence: Vec<ExternalEvidence>,     ) -> Self |
+| `is_actionable` | apps/guard/src/report.rs | function | pub | 33 | is_actionable(self) -> bool |
+| `is_clean` | apps/guard/src/report.rs | function | pub | 57 | is_clean(self) -> bool |
+| `persist` | apps/guard/src/report.rs | function | pub | 314 | persist(&self, dir: &Path) |
+| `rank` | apps/guard/src/report.rs | function | pub | 23 | rank(self) -> u8 |
+| `read_last` | apps/guard/src/report.rs | function | pub | 324 | read_last(dir: &Path) -> anyhow::Result<Self> |
+| `stub` | apps/guard/src/report.rs | function | pub | 262 | stub(verb: &str, prompt: impl Into<String>) -> Self |
+| `tool_error` | apps/guard/src/report.rs | function | pub | 285 | tool_error(         verb: &str,         target: impl Into<String>,         code: u8,         message: impl Into<String>,     ) -> Self |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
@@ -56,7 +56,7 @@ pub const SCHEMA_VERSION: &str = "guard.report/1";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub enum Severity {
     Critical,
     High,
@@ -65,7 +65,7 @@ pub enum Severity {
     Info,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Severity {
     pub fn rank(self) -> u8 {
         match self {
@@ -84,14 +84,14 @@ impl Severity {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "state", rename_all = "snake_case")]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub enum OverallStatus {
     Clean,
     Findings,
     ToolError { code: u8 },
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl OverallStatus {
     pub fn exit_code(self) -> i32 {
         match self {
@@ -107,7 +107,7 @@ impl OverallStatus {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Location {
     pub path: String,
     pub start_line: u32,
@@ -117,7 +117,7 @@ pub struct Location {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Finding {
     pub id: String,
     pub severity: Severity,
@@ -130,7 +130,7 @@ pub struct Finding {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Summary {
     pub files_scanned: u32,
     pub diagnostics_scanned: u32,
@@ -146,7 +146,7 @@ pub struct Summary {
     pub truncated: bool,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Summary {
     pub fn from_findings(
         files_scanned: usize,
@@ -178,7 +178,7 @@ impl Summary {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Completion {
     pub clean: bool,
     pub criteria: Vec<String>,
@@ -186,7 +186,7 @@ pub struct Completion {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct IntegrationMap {
     pub static_engine: String,
     pub isolated_runner: String,
@@ -195,7 +195,7 @@ pub struct IntegrationMap {
     pub benchmark_budget: String,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Default for IntegrationMap {
     fn default() -> Self {
         Self {
@@ -209,7 +209,7 @@ impl Default for IntegrationMap {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct GuardReport {
     pub schema_version: String,
     pub tool_version: String,
@@ -227,7 +227,7 @@ pub struct GuardReport {
     pub agent_prompt: String,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl GuardReport {
     pub fn from_scan(
         target: impl Into<String>,
@@ -391,7 +391,7 @@ fn missing_integrations(evidence: &[ExternalEvidence]) -> Vec<String> {
     missing
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub fn finding_id(rule: &str, path: &str, line: u32) -> String {
     let subject = format!("{path}:{line}");
     let squashed: String = subject
@@ -414,10 +414,10 @@ pub fn finding_id(rule: &str, path: &str, line: u32) -> String {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/src/report.rs"
+  - path: "apps/guard/src/report.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/src/report.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/src/report.rs` captured during guard standardization onto the codegen ladder.
 ```

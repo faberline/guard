@@ -1,6 +1,6 @@
 ---
 id: semantic-guard-projects-guard
-summary: Semantic coverage for "projects/guard"
+summary: Semantic coverage for "apps/guard"
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -11,19 +11,19 @@ capability_refs:
 fill_sections: [schema, changes]
 ---
 
-# Semantic TD: guard/projects/guard
+# Semantic TD: guard/apps/guard
 
 ## Schema
 <!-- type: schema lang: yaml -->
 
 ```yaml
 semantic_domain:
-  key: "guard/projects/guard"
-  source_group: "projects/guard"
+  key: "guard/apps/guard"
+  source_group: "apps/guard"
   coverage_kind: semantic
   evidence:
     source_units:
-      - path: "projects/guard/build.sh"
+      - path: "apps/guard/build.sh"
         language: "shell"
         ownership_state: "codegen"
         generator_primitives: ["source_unit"]
@@ -32,8 +32,8 @@ semantic_domain:
           ecosystem: "shell"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard"
-      - path: "projects/guard/install.sh"
+          domain: "apps/guard"
+      - path: "apps/guard/install.sh"
         language: "shell"
         ownership_state: "codegen"
         generator_primitives: ["source_unit"]
@@ -42,8 +42,8 @@ semantic_domain:
           ecosystem: "shell"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard"
-      - path: "projects/guard/llms.txt"
+          domain: "apps/guard"
+      - path: "apps/guard/llms.txt"
         language: "llms"
         ownership_state: "codegen"
         generator_primitives: ["source_unit"]
@@ -52,7 +52,7 @@ semantic_domain:
           ecosystem: "llms"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard"
+          domain: "apps/guard"
 ```
 
 
@@ -62,19 +62,19 @@ semantic_domain:
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/build.sh"
+  - path: "apps/guard/build.sh"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: codegen
-  - path: "projects/guard/install.sh"
+  - path: "apps/guard/install.sh"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: codegen
-  - path: "projects/guard/llms.txt"
+  - path: "apps/guard/llms.txt"
     action: modify
     section: schema
     description: |

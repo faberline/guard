@@ -1,6 +1,6 @@
 version = 1
 project = "guard"
-td_path = "projects/guard/tech-design"
+td_path = "apps/guard/tech-design"
 generated_at = "2026-06-23T14:06:43.451762+00:00"
 digest = "sha256:f9b63094847e6a4e7325ad9a4bb78e17793495a4e7245170895dfba2cfae9d0a"
 

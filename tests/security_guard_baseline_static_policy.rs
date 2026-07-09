@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-baseline-static-policy
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-baseline-static-policy
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-baseline-static-policy

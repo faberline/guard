@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 //! Agent-first CLI surface for `guard`, registered as a [`CliModule`].
 //!
@@ -13,10 +13,10 @@ use cclab_cli_registry::{CliModule, CLI_MODULES};
 use clap::{ArgMatches, CommandFactory, FromArgMatches};
 use linkme::distributed_slice;
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#source
 pub struct GuardCli;
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-lib-rs.md#source
 impl CliModule for GuardCli {
     fn name(&self) -> &'static str {
         "guard"

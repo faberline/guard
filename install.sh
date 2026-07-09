@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# SPEC-MANAGED: projects/guard/tech-design/semantic/guard-install-script.md#text-source-unit
+# SPEC-MANAGED: apps/guard/tech-design/semantic/guard-install-script.md#text-source-unit
 # CODEGEN-BEGIN
 set -eu
 

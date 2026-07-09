@@ -1,6 +1,6 @@
 ---
 id: semantic-guard-build-script
-summary: Lossless text-source-unit coverage for `projects/guard/build.sh`.
+summary: Lossless text-source-unit coverage for `apps/guard/build.sh`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -16,7 +16,7 @@ fill_sections: [overview, source, changes]
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Lossless text-source-unit coverage for `projects/guard/build.sh`.
+Lossless text-source-unit coverage for `apps/guard/build.sh`.
 
 ## Source
 <!-- type: text-source-unit lang: bash -->
@@ -27,7 +27,7 @@ set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: projects/guard/build.sh <debug|release>
+Usage: apps/guard/build.sh <debug|release>
 
 debug    Build guard-cli and install target/debug/guard to ~/.cargo/bin/guard.
 release  Bump patch version, build/install guard, commit version files, and tag guard@<version>.
@@ -38,7 +38,7 @@ fail_hint() {
   local mode="$1"
   echo ""
   echo "Build failed."
-  echo "Retry with: projects/guard/build.sh ${mode}"
+  echo "Retry with: apps/guard/build.sh ${mode}"
   echo "Verify with: ~/.cargo/bin/guard --version"
 }
 
@@ -85,7 +85,7 @@ if [[ "$MODE" == "debug" ]]; then
   exit 0
 fi
 
-CURRENT_VERSION="$(grep -m1 '^version = "' projects/guard/guard-cli/Cargo.toml | sed 's/version = "\(.*\)"/\1/')"
+CURRENT_VERSION="$(grep -m1 '^version = "' apps/guard/guard-cli/Cargo.toml | sed 's/version = "\(.*\)"/\1/')"
 IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
 
 NEW_PATCH=$((PATCH + 1))
@@ -102,14 +102,14 @@ fi
 NEW_VERSION="$NEW_MAJOR.$NEW_MINOR.$NEW_PATCH"
 
 echo "Bumping version: $CURRENT_VERSION -> $NEW_VERSION"
-sed -i '' "s/^version = \"$CURRENT_VERSION\"/version = \"$NEW_VERSION\"/" projects/guard/Cargo.toml projects/guard/guard-cli/Cargo.toml
+sed -i '' "s/^version = \"$CURRENT_VERSION\"/version = \"$NEW_VERSION\"/" apps/guard/Cargo.toml apps/guard/guard-cli/Cargo.toml
 
 cargo update -w 2>/dev/null || cargo generate-lockfile
 cargo build --release -p guard-cli
 install_guard release
 
 TAG="guard@${NEW_VERSION}"
-git add Cargo.lock projects/guard
+git add Cargo.lock apps/guard
 git commit -m "release(guard): ${TAG}"
 git tag -a "$TAG" -m "Release ${TAG}"
 
@@ -123,10 +123,10 @@ echo "Build complete. guard ${TAG} installed and tagged."
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/build.sh"
+  - path: "apps/guard/build.sh"
     action: modify
     section: text-source-unit
     impl_mode: codegen
     description: |
-      text-source-unit (td_ast) source for `projects/guard/build.sh` captured during guard standardization onto the codegen ladder.
+      text-source-unit (td_ast) source for `apps/guard/build.sh` captured during guard standardization onto the codegen ladder.
 ```

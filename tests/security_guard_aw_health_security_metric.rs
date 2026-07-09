@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-aw-health-security-metric
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-aw-health-security-metric
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-aw-health-security-metric

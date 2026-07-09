@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-bin-guard-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-bin-guard-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 use std::process::ExitCode;
 

@@ -77,7 +77,7 @@ e2e_tests:
     claim_id: json-report-envelope
     contract_id: guard-report-clean-static-scan
     category: security
-    command: "target/debug/guard scan projects/guard --compact --no-persist"
+    command: "target/debug/guard scan apps/guard --compact --no-persist"
     assertions:
       - command exits zero
       - stdout is a guard.report/1 JSON envelope
@@ -121,7 +121,7 @@ e2e_tests:
     claim_id: security-lint-policy
     contract_id: security-lint-policy
     category: security
-    command: "target/debug/guard scan projects/guard --profile security-lint --compact --no-persist"
+    command: "target/debug/guard scan apps/guard --profile security-lint --compact --no-persist"
     assertions:
       - "security-lint profile runs on the guard source tree"
       - "security-impacting lint remains part of the guard policy profile"
@@ -157,7 +157,7 @@ e2e_tests:
     claim_id: ec-security-evidence-command
     contract_id: ec-security-evidence-command
     category: security
-    command: "target/debug/guard scan projects/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target projects/guard"
+    command: "target/debug/guard scan apps/guard --profile security-lint --compact --no-persist --vat-runner guard-security-smoke --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml --meter-target apps/guard"
     assertions:
       - "guard scan runs the full configured EC evidence command"
       - "vat, rig, and meter evidence adapters fold into guard.report/1"
@@ -173,7 +173,7 @@ e2e_tests:
     claim_id: vat-isolated-security-runner
     contract_id: vat-isolated-security-runner
     category: security
-    command: "target/debug/guard scan projects/guard --compact --no-persist --vat-runner guard-security-smoke"
+    command: "target/debug/guard scan apps/guard --compact --no-persist --vat-runner guard-security-smoke"
     assertions:
       - "guard can fold a vat-isolated runner into its report"
       - "isolated evidence is visible without persisting guard state"
@@ -183,7 +183,7 @@ e2e_tests:
     claim_id: rig-exploit-journey-bridge
     contract_id: rig-exploit-journey-bridge
     category: security
-    command: "target/debug/guard scan projects/guard --compact --no-persist --rig-scenario projects/guard/tests/rig/scenarios/security/guard_self_scan.toml"
+    command: "target/debug/guard scan apps/guard --compact --no-persist --rig-scenario apps/guard/tests/rig/scenarios/security/guard_self_scan.toml"
     assertions:
       - "guard can fold rig scenario evidence into its report"
       - "exploit journey evidence remains executable through the guard bridge"
@@ -193,7 +193,7 @@ e2e_tests:
     claim_id: meter-dos-resource-evidence-bridge
     contract_id: meter-dos-resource-evidence-bridge
     category: security
-    command: "target/debug/guard scan projects/guard --compact --no-persist --meter-target projects/guard"
+    command: "target/debug/guard scan apps/guard --compact --no-persist --meter-target apps/guard"
     assertions:
       - "guard can fold meter resource evidence into its report"
       - "resource-abuse evidence remains visible in guard.report/1"

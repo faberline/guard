@@ -1,6 +1,6 @@
 ---
 id: projects-guard-guard-cli-src-bin-guard-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/guard-cli/src/bin/guard.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/guard-cli/src/bin/guard.rs`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -17,12 +17,12 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/guard-cli/src/bin/guard.rs
+# Standardized apps/guard/guard-cli/src/bin/guard.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/guard-cli/src/bin/guard.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/guard-cli/src/bin/guard.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
@@ -51,10 +51,10 @@ fn main() -> ExitCode {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/guard-cli/src/bin/guard.rs"
+  - path: "apps/guard/guard-cli/src/bin/guard.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/guard-cli/src/bin/guard.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/guard-cli/src/bin/guard.rs` captured during guard standardization onto the codegen ladder.
 ```

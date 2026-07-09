@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 use serde::{Deserialize, Serialize};
 use std::path::Path;
@@ -9,7 +9,7 @@ pub const SCHEMA_VERSION: &str = "guard.report/1";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub enum Severity {
     Critical,
     High,
@@ -18,7 +18,7 @@ pub enum Severity {
     Info,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Severity {
     pub fn rank(self) -> u8 {
         match self {
@@ -37,14 +37,14 @@ impl Severity {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "state", rename_all = "snake_case")]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub enum OverallStatus {
     Clean,
     Findings,
     ToolError { code: u8 },
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl OverallStatus {
     pub fn exit_code(self) -> i32 {
         match self {
@@ -60,7 +60,7 @@ impl OverallStatus {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Location {
     pub path: String,
     pub start_line: u32,
@@ -70,7 +70,7 @@ pub struct Location {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Finding {
     pub id: String,
     pub severity: Severity,
@@ -83,7 +83,7 @@ pub struct Finding {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Summary {
     pub files_scanned: u32,
     pub diagnostics_scanned: u32,
@@ -99,7 +99,7 @@ pub struct Summary {
     pub truncated: bool,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Summary {
     pub fn from_findings(
         files_scanned: usize,
@@ -131,7 +131,7 @@ impl Summary {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct Completion {
     pub clean: bool,
     pub criteria: Vec<String>,
@@ -139,7 +139,7 @@ pub struct Completion {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct IntegrationMap {
     pub static_engine: String,
     pub isolated_runner: String,
@@ -148,7 +148,7 @@ pub struct IntegrationMap {
     pub benchmark_budget: String,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl Default for IntegrationMap {
     fn default() -> Self {
         Self {
@@ -162,7 +162,7 @@ impl Default for IntegrationMap {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub struct GuardReport {
     pub schema_version: String,
     pub tool_version: String,
@@ -180,7 +180,7 @@ pub struct GuardReport {
     pub agent_prompt: String,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 impl GuardReport {
     pub fn from_scan(
         target: impl Into<String>,
@@ -344,7 +344,7 @@ fn missing_integrations(evidence: &[ExternalEvidence]) -> Vec<String> {
     missing
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-report-rs.md#source
 pub fn finding_id(rule: &str, path: &str, line: u32) -> String {
     let subject = format!("{path}:{line}");
     let squashed: String = subject

@@ -1,6 +1,6 @@
 ---
 id: projects-guard-src-evidence-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/src/evidence.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/src/evidence.rs`.
 capability_refs:
   - id: dynamic-security-evidence
     role: primary
@@ -23,27 +23,27 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/src/evidence.rs
+# Standardized apps/guard/src/evidence.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/src/evidence.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/src/evidence.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `EvidenceCommand` | projects/guard/src/evidence.rs | struct | pub | 13 |  |
-| `EvidenceStatus` | projects/guard/src/evidence.rs | enum | pub | 64 |  |
-| `ExternalEvidence` | projects/guard/src/evidence.rs | struct | pub | 72 |  |
-| `argv` | projects/guard/src/evidence.rs | function | pub | 23 | argv(tool: impl Into<String>, label: impl Into<String>, command: Vec<String>) -> Self |
-| `display_command` | projects/guard/src/evidence.rs | function | pub | 46 | display_command(&self) -> String |
-| `run_evidence_commands` | projects/guard/src/evidence.rs | function | pub | 139 | run_evidence_commands(commands: &[EvidenceCommand]) -> Vec<ExternalEvidence> |
-| `shell` | projects/guard/src/evidence.rs | function | pub | 33 | shell(         tool: impl Into<String>,         label: impl Into<String>,         command: impl Into<String>,     ) -> Self |
-| `to_guard_finding` | projects/guard/src/evidence.rs | function | pub | 93 | to_guard_finding(&self, target: &str) -> Option<Finding> |
-| `with_cwd` | projects/guard/src/evidence.rs | function | pub | 50 | with_cwd(mut self, cwd: impl Into<PathBuf>) -> Self |
-| `with_env` | projects/guard/src/evidence.rs | function | pub | 55 | with_env(mut self, key: impl Into<String>, value: impl Into<String>) -> Self |
+| `EvidenceCommand` | apps/guard/src/evidence.rs | struct | pub | 13 |  |
+| `EvidenceStatus` | apps/guard/src/evidence.rs | enum | pub | 64 |  |
+| `ExternalEvidence` | apps/guard/src/evidence.rs | struct | pub | 72 |  |
+| `argv` | apps/guard/src/evidence.rs | function | pub | 23 | argv(tool: impl Into<String>, label: impl Into<String>, command: Vec<String>) -> Self |
+| `display_command` | apps/guard/src/evidence.rs | function | pub | 46 | display_command(&self) -> String |
+| `run_evidence_commands` | apps/guard/src/evidence.rs | function | pub | 139 | run_evidence_commands(commands: &[EvidenceCommand]) -> Vec<ExternalEvidence> |
+| `shell` | apps/guard/src/evidence.rs | function | pub | 33 | shell(         tool: impl Into<String>,         label: impl Into<String>,         command: impl Into<String>,     ) -> Self |
+| `to_guard_finding` | apps/guard/src/evidence.rs | function | pub | 93 | to_guard_finding(&self, target: &str) -> Option<Finding> |
+| `with_cwd` | apps/guard/src/evidence.rs | function | pub | 50 | with_cwd(mut self, cwd: impl Into<PathBuf>) -> Self |
+| `with_env` | apps/guard/src/evidence.rs | function | pub | 55 | with_env(mut self, key: impl Into<String>, value: impl Into<String>) -> Self |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
@@ -57,7 +57,7 @@ use serde::{Deserialize, Serialize};
 use crate::report::{Finding, Location, Severity};
 
 #[derive(Debug, Clone)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 pub struct EvidenceCommand {
     pub tool: String,
     pub label: String,
@@ -66,7 +66,7 @@ pub struct EvidenceCommand {
     pub env: BTreeMap<String, String>,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 impl EvidenceCommand {
     pub fn argv(tool: impl Into<String>, label: impl Into<String>, command: Vec<String>) -> Self {
         Self {
@@ -108,7 +108,7 @@ impl EvidenceCommand {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 pub enum EvidenceStatus {
     Clean,
     Findings,
@@ -116,7 +116,7 @@ pub enum EvidenceStatus {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 pub struct ExternalEvidence {
     pub tool: String,
     pub label: String,
@@ -136,7 +136,7 @@ pub struct ExternalEvidence {
     pub stderr_tail: String,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 impl ExternalEvidence {
     pub fn to_guard_finding(&self, target: &str) -> Option<Finding> {
         if self.clean {
@@ -183,7 +183,7 @@ impl ExternalEvidence {
     }
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-evidence-rs.md#source
 pub fn run_evidence_commands(commands: &[EvidenceCommand]) -> Vec<ExternalEvidence> {
     commands.iter().map(run_one).collect()
 }
@@ -394,7 +394,7 @@ mod tests {
 
 ```yaml
 changes:
-  - path: "projects/guard/src/evidence.rs"
+  - path: "apps/guard/src/evidence.rs"
     action: modify
     section: rust-source-unit
     description: |

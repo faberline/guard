@@ -1,6 +1,6 @@
 ---
 id: projects-guard-src-scan-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/src/scan.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/src/scan.rs`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -17,28 +17,28 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/src/scan.rs
+# Standardized apps/guard/src/scan.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/src/scan.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/src/scan.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `PolicyProfile` | projects/guard/src/scan.rs | enum | pub | 15 |  |
-| `ScanOptions` | projects/guard/src/scan.rs | struct | pub | 34 |  |
-| `as_str` | projects/guard/src/scan.rs | function | pub | 23 | as_str(self) -> &'static str |
-| `default_languages` | projects/guard/src/scan.rs | function | pub | 61 | default_languages() -> Vec<Language> |
-| `scan_path` | projects/guard/src/scan.rs | function | pub | 80 | scan_path(path: impl AsRef<Path>) -> GuardReport |
-| `scan_path_with_options` | projects/guard/src/scan.rs | function | pub | 85 | scan_path_with_options(path: impl AsRef<Path>, options: ScanOptions) -> GuardReport |
+| `PolicyProfile` | apps/guard/src/scan.rs | enum | pub | 15 |  |
+| `ScanOptions` | apps/guard/src/scan.rs | struct | pub | 34 |  |
+| `as_str` | apps/guard/src/scan.rs | function | pub | 23 | as_str(self) -> &'static str |
+| `default_languages` | apps/guard/src/scan.rs | function | pub | 61 | default_languages() -> Vec<Language> |
+| `scan_path` | apps/guard/src/scan.rs | function | pub | 80 | scan_path(path: impl AsRef<Path>) -> GuardReport |
+| `scan_path_with_options` | apps/guard/src/scan.rs | function | pub | 85 | scan_path_with_options(path: impl AsRef<Path>, options: ScanOptions) -> GuardReport |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
 ````rust
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 use std::fs;
 use std::path::Path;
@@ -54,14 +54,14 @@ use crate::evidence::{run_evidence_commands, EvidenceCommand};
 use crate::report::{finding_id, Finding, GuardReport, Location, Severity};
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub enum PolicyProfile {
     BaselineStatic,
     SecurityLint,
     Strict,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 impl PolicyProfile {
     pub fn as_str(self) -> &'static str {
         match self {
@@ -73,7 +73,7 @@ impl PolicyProfile {
 }
 
 #[derive(Debug, Clone)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub struct ScanOptions {
     pub profile: PolicyProfile,
     pub languages: Vec<Language>,
@@ -81,7 +81,7 @@ pub struct ScanOptions {
     pub evidence_commands: Vec<EvidenceCommand>,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 impl Default for ScanOptions {
     fn default() -> Self {
         Self {
@@ -100,7 +100,7 @@ impl Default for ScanOptions {
     }
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub fn default_languages() -> Vec<Language> {
     vec![
         Language::Python,
@@ -124,7 +124,7 @@ pub fn default_languages() -> Vec<Language> {
 // behaves exactly as before. A waiver never invents a pass — it only suppresses
 // a finding whose rule (and optional path) a maintainer has documented.
 #[derive(Debug, Clone, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub struct Waiver {
     pub rule: String,
     #[serde(default)]
@@ -134,7 +134,7 @@ pub struct Waiver {
 }
 
 #[derive(Debug, Clone, Default, Deserialize)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 struct WaiverFile {
     #[serde(default)]
     waivers: Vec<Waiver>,
@@ -143,7 +143,7 @@ struct WaiverFile {
 // Load `<dir>/.guard/waivers.json`. Fail-safe: a missing file or any parse error
 // yields no waivers, so a broken waiver file keeps the scan strict rather than
 // silently passing.
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 fn load_waivers(target: &Path) -> Vec<Waiver> {
     let dir = if target.is_dir() {
         target.to_path_buf()
@@ -164,7 +164,7 @@ fn load_waivers(target: &Path) -> Vec<Waiver> {
 
 // `true` when `finding` matches a waiver: identical rule code, and — when the
 // waiver pins `path_contains` — the finding path contains that substring.
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 fn finding_is_waived(finding: &Finding, waivers: &[Waiver]) -> bool {
     waivers.iter().any(|waiver| {
         waiver.rule == finding.rule
@@ -176,12 +176,12 @@ fn finding_is_waived(finding: &Finding, waivers: &[Waiver]) -> bool {
     })
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub fn scan_path(path: impl AsRef<Path>) -> GuardReport {
     scan_path_with_options(path, ScanOptions::default())
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-src-scan-rs.md#source
 pub fn scan_path_with_options(path: impl AsRef<Path>, options: ScanOptions) -> GuardReport {
     let target = path.as_ref();
     let target_display = target.display().to_string();
@@ -445,10 +445,10 @@ mod tests {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/src/scan.rs"
+  - path: "apps/guard/src/scan.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/src/scan.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/src/scan.rs` captured during guard standardization onto the codegen ladder.
 ```

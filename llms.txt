@@ -1,4 +1,4 @@
-<!-- SPEC-MANAGED: projects/guard/tech-design/semantic/guard-projects-guard.md#schema -->
+<!-- SPEC-MANAGED: apps/guard/tech-design/semantic/guard-projects-guard.md#schema -->
 <!-- CODEGEN-BEGIN -->
 # guard Agent Context
 
@@ -7,7 +7,7 @@
 ## Tech Design
 
 - [Tech Design](tech-design): implementation source of truth.
-- Validate: `aw td check projects/guard/tech-design`.
+- Validate: `aw td check apps/guard/tech-design`.
 
 ## Capability Map
 

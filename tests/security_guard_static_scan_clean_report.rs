@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-static-scan-clean-report
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-static-scan-clean-report
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-static-scan-clean-report
@@ -7,7 +7,7 @@
 // @contract guard-report-clean-static-scan
 // @category security
 // @required_for_production true
-// @command target/debug/guard scan projects/guard --compact --no-persist
+// @command target/debug/guard scan apps/guard --compact --no-persist
 // AW-EC-END
 
 // Contract: command exits zero
@@ -17,7 +17,7 @@
 #[test]
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn guard_static_scan_clean_report() {
-    let command = "target/debug/guard scan projects/guard --compact --no-persist";
+    let command = "target/debug/guard scan apps/guard --compact --no-persist";
     let id = "guard-static-scan-clean-report";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {

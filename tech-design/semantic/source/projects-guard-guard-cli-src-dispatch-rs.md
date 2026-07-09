@@ -1,6 +1,6 @@
 ---
 id: projects-guard-guard-cli-src-dispatch-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/guard-cli/src/dispatch.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/guard-cli/src/dispatch.rs`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -17,24 +17,24 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/guard-cli/src/dispatch.rs
+# Standardized apps/guard/guard-cli/src/dispatch.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/guard-cli/src/dispatch.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/guard-cli/src/dispatch.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `GuardCommand` | projects/guard/guard-cli/src/dispatch.rs | struct | pub | 16 |  |
-| `OutputOpts` | projects/guard/guard-cli/src/dispatch.rs | struct | pub | 25 |  |
-| `ProfileArg` | projects/guard/guard-cli/src/dispatch.rs | enum | pub | 90 |  |
-| `ScanArgs` | projects/guard/guard-cli/src/dispatch.rs | struct | pub | 49 |  |
-| `Verb` | projects/guard/guard-cli/src/dispatch.rs | enum | pub | 36 |  |
-| `dispatch` | projects/guard/guard-cli/src/dispatch.rs | function | pub | 108 | dispatch(cmd: GuardCommand) -> GuardReport |
-| `print_report` | projects/guard/guard-cli/src/dispatch.rs | function | pub | 278 | print_report(report: &GuardReport, out: &OutputOpts) |
+| `GuardCommand` | apps/guard/guard-cli/src/dispatch.rs | struct | pub | 16 |  |
+| `OutputOpts` | apps/guard/guard-cli/src/dispatch.rs | struct | pub | 25 |  |
+| `ProfileArg` | apps/guard/guard-cli/src/dispatch.rs | enum | pub | 90 |  |
+| `ScanArgs` | apps/guard/guard-cli/src/dispatch.rs | struct | pub | 49 |  |
+| `Verb` | apps/guard/guard-cli/src/dispatch.rs | enum | pub | 36 |  |
+| `dispatch` | apps/guard/guard-cli/src/dispatch.rs | function | pub | 108 | dispatch(cmd: GuardCommand) -> GuardReport |
+| `print_report` | apps/guard/guard-cli/src/dispatch.rs | function | pub | 278 | print_report(report: &GuardReport, out: &OutputOpts) |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
@@ -51,7 +51,7 @@ use guard::{EvidenceCommand, GuardReport, PolicyProfile, ScanOptions};
     about = "guard — security posture gate (JSON on stdout by default)",
     disable_help_subcommand = true
 )]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct GuardCommand {
     #[command(subcommand)]
     pub verb: Verb,
@@ -60,7 +60,7 @@ pub struct GuardCommand {
 }
 
 #[derive(Args, Debug, Clone, Default)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct OutputOpts {
     /// Emit the report as a single dense line.
     #[arg(long, global = true)]
@@ -71,7 +71,7 @@ pub struct OutputOpts {
 }
 
 #[derive(Subcommand, Debug)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub enum Verb {
     /// Run the baseline static security profile over a file or directory.
     Scan(ScanArgs),
@@ -84,7 +84,7 @@ pub enum Verb {
 }
 
 #[derive(Args, Debug)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct ScanArgs {
     /// File or directory to scan.
     #[arg(default_value = ".")]
@@ -125,14 +125,14 @@ pub struct ScanArgs {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, ValueEnum)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub enum ProfileArg {
     BaselineStatic,
     SecurityLint,
     Strict,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 impl From<ProfileArg> for PolicyProfile {
     fn from(value: ProfileArg) -> Self {
         match value {
@@ -143,7 +143,7 @@ impl From<ProfileArg> for PolicyProfile {
     }
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub fn dispatch(cmd: GuardCommand) -> GuardReport {
     match cmd.verb {
         Verb::Scan(args) => {
@@ -313,7 +313,7 @@ fn stable_rust_path() -> String {
     )
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub fn print_report(report: &GuardReport, out: &OutputOpts) {
     let json = if out.compact {
         serde_json::to_string(report)
@@ -337,10 +337,10 @@ pub fn print_report(report: &GuardReport, out: &OutputOpts) {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/guard-cli/src/dispatch.rs"
+  - path: "apps/guard/guard-cli/src/dispatch.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/guard-cli/src/dispatch.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/guard-cli/src/dispatch.rs` captured during guard standardization onto the codegen ladder.
 ```

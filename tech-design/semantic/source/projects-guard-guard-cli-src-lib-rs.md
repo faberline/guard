@@ -1,6 +1,6 @@
 ---
 id: projects-guard-guard-cli-src-lib-rs
-summary: Lossless rust-source-unit coverage for `projects/guard/guard-cli/src/lib.rs`.
+summary: Lossless rust-source-unit coverage for `apps/guard/guard-cli/src/lib.rs`.
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -17,19 +17,19 @@ capability_refs:
 fill_sections: [overview, source, changes]
 ---
 
-# Standardized projects/guard/guard-cli/src/lib.rs
+# Standardized apps/guard/guard-cli/src/lib.rs
 
 ## Overview
 <!-- type: overview lang: markdown -->
 
-Public API manifest for `projects/guard/guard-cli/src/lib.rs` generated from AST during Score force-regeneration standardization.
+Public API manifest for `apps/guard/guard-cli/src/lib.rs` generated from AST during Score force-regeneration standardization.
 
 ### Symbols
 
 | Name | Target | Kind | Visibility | Line | Signature |
 |------|--------|------|------------|------|-----------|
-| `GuardCli` | projects/guard/guard-cli/src/lib.rs | struct | pub | 17 |  |
-| `dispatch` | projects/guard/guard-cli/src/lib.rs | module | pub | 8 |  |
+| `GuardCli` | apps/guard/guard-cli/src/lib.rs | struct | pub | 17 |  |
+| `dispatch` | apps/guard/guard-cli/src/lib.rs | module | pub | 8 |  |
 ## Source
 <!-- type: rust-source-unit lang: rust -->
 
@@ -104,10 +104,10 @@ mod tests {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/guard-cli/src/lib.rs"
+  - path: "apps/guard/guard-cli/src/lib.rs"
     action: modify
     section: rust-source-unit
     impl_mode: codegen
     description: |
-      rust-source-unit (td_ast) source for `projects/guard/guard-cli/src/lib.rs` captured during guard standardization onto the codegen ladder.
+      rust-source-unit (td_ast) source for `apps/guard/guard-cli/src/lib.rs` captured during guard standardization onto the codegen ladder.
 ```

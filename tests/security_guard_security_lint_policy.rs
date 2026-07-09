@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-security-lint-policy
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-security-lint-policy
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-security-lint-policy
@@ -7,7 +7,7 @@
 // @contract security-lint-policy
 // @category security
 // @required_for_production true
-// @command target/debug/guard scan projects/guard --profile security-lint --compact --no-persist
+// @command target/debug/guard scan apps/guard --profile security-lint --compact --no-persist
 // AW-EC-END
 
 // Contract: security-lint profile runs on the guard source tree
@@ -16,7 +16,7 @@
 #[ignore = "AW EC gate: run via `aw health --verify-ec` or `cargo test -- --ignored`"]
 fn guard_security_lint_policy() {
     let command =
-        "target/debug/guard scan projects/guard --profile security-lint --compact --no-persist";
+        "target/debug/guard scan apps/guard --profile security-lint --compact --no-persist";
     let id = "guard-security-lint-policy";
     let mut root = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     while !root.join(".aw").is_dir() {

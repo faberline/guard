@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-src-lib-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-src-lib-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 //! guard — security posture gate for the cclab ecosystem.
 //!

@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#rust-source-unit
+// SPEC-MANAGED: apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#rust-source-unit
 // CODEGEN-BEGIN
 use std::path::PathBuf;
 
@@ -12,7 +12,7 @@ use guard::{EvidenceCommand, GuardReport, PolicyProfile, ScanOptions};
     about = "guard — security posture gate (JSON on stdout by default)",
     disable_help_subcommand = true
 )]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct GuardCommand {
     #[command(subcommand)]
     pub verb: Verb,
@@ -21,7 +21,7 @@ pub struct GuardCommand {
 }
 
 #[derive(Args, Debug, Clone, Default)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct OutputOpts {
     /// Emit the report as a single dense line.
     #[arg(long, global = true)]
@@ -32,7 +32,7 @@ pub struct OutputOpts {
 }
 
 #[derive(Subcommand, Debug)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub enum Verb {
     /// Run the baseline static security profile over a file or directory.
     Scan(ScanArgs),
@@ -45,7 +45,7 @@ pub enum Verb {
 }
 
 #[derive(Args, Debug)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub struct ScanArgs {
     /// File or directory to scan.
     #[arg(default_value = ".")]
@@ -86,14 +86,14 @@ pub struct ScanArgs {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, ValueEnum)]
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub enum ProfileArg {
     BaselineStatic,
     SecurityLint,
     Strict,
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 impl From<ProfileArg> for PolicyProfile {
     fn from(value: ProfileArg) -> Self {
         match value {
@@ -104,7 +104,7 @@ impl From<ProfileArg> for PolicyProfile {
     }
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub fn dispatch(cmd: GuardCommand) -> GuardReport {
     match cmd.verb {
         Verb::Scan(args) => {
@@ -274,7 +274,7 @@ fn stable_rust_path() -> String {
     )
 }
 
-/// @spec projects/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
+/// @spec apps/guard/tech-design/semantic/source/projects-guard-guard-cli-src-dispatch-rs.md#source
 pub fn print_report(report: &GuardReport, out: &OutputOpts) {
     let json = if out.compact {
         serde_json::to_string(report)

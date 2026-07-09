@@ -1,6 +1,6 @@
 ---
 id: semantic-guard-guard-cli-src-bin
-summary: Semantic coverage for "projects/guard/guard-cli/src/bin"
+summary: Semantic coverage for "apps/guard/guard-cli/src/bin"
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -19,11 +19,11 @@ fill_sections: [schema, changes]
 ```yaml
 semantic_domain:
   key: "guard/guard-cli/src/bin"
-  source_group: "projects/guard/guard-cli/src/bin"
+  source_group: "apps/guard/guard-cli/src/bin"
   coverage_kind: semantic
   evidence:
     source_units:
-      - path: "projects/guard/guard-cli/src/bin/guard.rs"
+      - path: "apps/guard/guard-cli/src/bin/guard.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["service_method"]
@@ -36,7 +36,7 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/guard-cli/src/bin"
+          domain: "apps/guard/guard-cli/src/bin"
 ```
 
 
@@ -46,7 +46,7 @@ semantic_domain:
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/guard-cli/src/bin/guard.rs"
+  - path: "apps/guard/guard-cli/src/bin/guard.rs"
     action: modify
     section: schema
     description: |

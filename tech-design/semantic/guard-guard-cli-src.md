@@ -1,6 +1,6 @@
 ---
 id: semantic-guard-guard-cli-src
-summary: Semantic coverage for "projects/guard/guard-cli/src"
+summary: Semantic coverage for "apps/guard/guard-cli/src"
 capability_refs:
   - id: static-security-scan
     role: primary
@@ -25,11 +25,11 @@ fill_sections: [schema, changes]
 ```yaml
 semantic_domain:
   key: "guard/guard-cli/src"
-  source_group: "projects/guard/guard-cli/src"
+  source_group: "apps/guard/guard-cli/src"
   coverage_kind: semantic
   evidence:
     source_units:
-      - path: "projects/guard/guard-cli/src/dispatch.rs"
+      - path: "apps/guard/guard-cli/src/dispatch.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["data_model", "enum_model", "service_method"]
@@ -57,8 +57,8 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/guard-cli/src"
-      - path: "projects/guard/guard-cli/src/lib.rs"
+          domain: "apps/guard/guard-cli/src"
+      - path: "apps/guard/guard-cli/src/lib.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["data_model", "service_method"]
@@ -86,7 +86,7 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/guard-cli/src"
+          domain: "apps/guard/guard-cli/src"
 ```
 
 
@@ -96,13 +96,13 @@ semantic_domain:
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/guard-cli/src/dispatch.rs"
+  - path: "apps/guard/guard-cli/src/dispatch.rs"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: codegen
-  - path: "projects/guard/guard-cli/src/lib.rs"
+  - path: "apps/guard/guard-cli/src/lib.rs"
     action: modify
     section: schema
     description: |

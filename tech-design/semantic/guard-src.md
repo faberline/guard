@@ -1,12 +1,12 @@
 ---
 id: semantic-guard-src
-summary: Semantic coverage for "projects/guard/src"
+summary: Semantic coverage for "apps/guard/src"
 capability_refs:
   - id: "static-security-scan"
     role: primary
     claim: "compass-backed-diagnostic-scan"
     coverage: partial
-    rationale: "Semantic takeover coverage for existing source group `projects/guard/src`."
+    rationale: "Semantic takeover coverage for existing source group `apps/guard/src`."
 fill_sections: [schema, unit-test, changes]
 ---
 
@@ -18,11 +18,11 @@ fill_sections: [schema, unit-test, changes]
 ```yaml
 semantic_domain:
   key: "guard/src"
-  source_group: "projects/guard/src"
+  source_group: "apps/guard/src"
   coverage_kind: semantic
   evidence:
     source_units:
-      - path: "projects/guard/src/lib.rs"
+      - path: "apps/guard/src/lib.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["source_unit"]
@@ -41,8 +41,8 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/src"
-      - path: "projects/guard/src/report.rs"
+          domain: "apps/guard/src"
+      - path: "apps/guard/src/report.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["config_surface", "data_model", "enum_model", "service_method"]
@@ -121,8 +121,8 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/src"
-      - path: "projects/guard/src/evidence.rs"
+          domain: "apps/guard/src"
+      - path: "apps/guard/src/evidence.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["data_model", "enum_model", "service_method"]
@@ -186,8 +186,8 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/src"
-      - path: "projects/guard/src/scan.rs"
+          domain: "apps/guard/src"
+      - path: "apps/guard/src/scan.rs"
         language: "rust"
         ownership_state: "codegen"
         generator_primitives: ["data_model", "enum_model", "service_method"]
@@ -239,7 +239,7 @@ semantic_domain:
           ecosystem: "rust"
           role: "source"
           section_type: "schema"
-          domain: "projects/guard/src"
+          domain: "apps/guard/src"
 ```
 
 ## Unit Test
@@ -266,25 +266,25 @@ element UT_SOURCE_TESTS {
 ```yaml
 coverage_kind: semantic
 changes:
-  - path: "projects/guard/src/lib.rs"
+  - path: "apps/guard/src/lib.rs"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: hand-written
-  - path: "projects/guard/src/report.rs"
+  - path: "apps/guard/src/report.rs"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: hand-written
-  - path: "projects/guard/src/evidence.rs"
+  - path: "apps/guard/src/evidence.rs"
     action: modify
     section: schema
     description: |
       Existing source behavior is covered by this feature/domain semantic TD.
     impl_mode: hand-written
-  - path: "projects/guard/src/scan.rs"
+  - path: "apps/guard/src/scan.rs"
     action: modify
     section: schema
     description: |

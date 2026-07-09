@@ -1,4 +1,4 @@
-// SPEC-MANAGED: projects/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-compass-backed-diagnostic-scan
+// SPEC-MANAGED: apps/guard/tech-design/semantic/guard-ec-static-security-smoke.md#guard-compass-backed-diagnostic-scan
 // CODEGEN-BEGIN
 // AW-EC-BEGIN
 // @ec guard-compass-backed-diagnostic-scan

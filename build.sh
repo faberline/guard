@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# SPEC-MANAGED: projects/guard/tech-design/semantic/guard-build-script.md#text-source-unit
+# SPEC-MANAGED: apps/guard/tech-design/semantic/guard-build-script.md#text-source-unit
 # CODEGEN-BEGIN
 set -euo pipefail
 
 usage() {
   cat <<'EOF'
-Usage: projects/guard/build.sh <debug|release>
+Usage: apps/guard/build.sh <debug|release>
 
 debug    Build guard-cli and install target/debug/guard to ~/.cargo/bin/guard.
 release  Build/install guard, create a release commit, and print the tag to push after git:land.
@@ -16,7 +16,7 @@ fail_hint() {
   local mode="$1"
   echo ""
   echo "Build failed."
-  echo "Retry with: projects/guard/build.sh ${mode}"
+  echo "Retry with: apps/guard/build.sh ${mode}"
   echo "Verify with: ~/.cargo/bin/guard --version"
 }
 
@@ -57,8 +57,8 @@ install_guard() {
 }
 
 if [[ "$MODE" == "debug" ]]; then
-  VERSION_FILES=(projects/guard/Cargo.toml projects/guard/guard-cli/Cargo.toml)
-  CURRENT_VERSION="$(project_build_read_version projects/guard/guard-cli/Cargo.toml)"
+  VERSION_FILES=(apps/guard/Cargo.toml apps/guard/guard-cli/Cargo.toml)
+  CURRENT_VERSION="$(project_build_read_version apps/guard/guard-cli/Cargo.toml)"
   project_build_prepare_debug_version guard "$CURRENT_VERSION" "${VERSION_FILES[@]}"
   cargo build -p guard-cli
   install_guard debug
@@ -68,8 +68,8 @@ if [[ "$MODE" == "debug" ]]; then
   exit 0
 fi
 
-VERSION_FILES=(projects/guard/Cargo.toml projects/guard/guard-cli/Cargo.toml)
-CURRENT_VERSION="$(project_build_read_version projects/guard/guard-cli/Cargo.toml)"
+VERSION_FILES=(apps/guard/Cargo.toml apps/guard/guard-cli/Cargo.toml)
+CURRENT_VERSION="$(project_build_read_version apps/guard/guard-cli/Cargo.toml)"
 export PROJECT_BUILD_REQUIRE_REMOTE_TAG_CHECK=1
 project_build_prepare_release_version guard "$CURRENT_VERSION" "${VERSION_FILES[@]}"
 
@@ -78,7 +78,7 @@ cargo build --release -p guard-cli
 install_guard release
 
 TAG="${PROJECT_BUILD_RELEASE_TAG}"
-git add Cargo.lock projects/guard
+git add Cargo.lock apps/guard
 git commit --allow-empty -m "release(guard): ${TAG}"
 
 project_build_print_release_next_steps guard "$TAG"
