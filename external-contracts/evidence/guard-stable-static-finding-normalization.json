@@ -22,7 +22,7 @@
   ],
   "case_id": "guard-stable-static-finding-normalization",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/scan/stable-static-finding-normalization.py",
+  "implementation": "external-contracts/src/scan/stable-static-finding-normalization.py",
   "mode": "stability",
   "protocol": "aw.python-ec.evidence.v1"
 }

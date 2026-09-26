@@ -24,7 +24,7 @@
   ],
   "case_id": "guard-security-report-consumer-contract",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/report/security-report-consumer-contract.py",
+  "implementation": "external-contracts/src/report/security-report-consumer-contract.py",
   "mode": "behavior",
   "protocol": "aw.python-ec.evidence.v1"
 }

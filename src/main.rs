@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/guard/tech-design/src/distribution.py
+// SPEC-MANAGED: tech-design/src/distribution.py
 // HANDWRITE-BEGIN gap="existing-project-patch" tracker="#2823" reason="Guard standalone distribution entrypoint remains native Rust"
 // @spec WI #2931: executable Python TD parity baseline.
 //! Standalone Guard CLI. This package owns both the command surface and its

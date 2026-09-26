@@ -24,7 +24,7 @@
   ],
   "case_id": "guard-lifecycle-security-metric",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/report/lifecycle-security-metric.py",
+  "implementation": "external-contracts/src/report/lifecycle-security-metric.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

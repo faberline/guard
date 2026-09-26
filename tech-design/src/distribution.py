@@ -52,9 +52,9 @@ class DistributionDesign:
         return GuardProjectLayout(
             cargo_package="guard",
             binary_target="guard",
-            capability_contract="apps/guard/README.md",
-            external_contract_root="apps/guard/external-contracts",
-            tech_design_root="apps/guard/tech-design",
+            capability_contract="README.md",
+            external_contract_root="external-contracts",
+            tech_design_root="tech-design",
         )
 
     @staticmethod

@@ -22,7 +22,7 @@
   ],
   "case_id": "guard-stable-policy-selection",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/policy/stable-policy-selection.py",
+  "implementation": "external-contracts/src/policy/stable-policy-selection.py",
   "mode": "stability",
   "protocol": "aw.python-ec.evidence.v1"
 }

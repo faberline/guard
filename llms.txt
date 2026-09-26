@@ -1,4 +1,4 @@
-<!-- SPEC-MANAGED: apps/guard/tech-design/src/distribution.py -->
+<!-- SPEC-MANAGED: tech-design/src/distribution.py -->
 <!-- HANDWRITE-BEGIN: gap=existing-project-patch tracker=#2823 -->
 # guard Agent Context
 
@@ -7,7 +7,7 @@
 ## Tech Design
 
 - [Tech Design](tech-design): implementation source of truth.
-- Validate: `aw td check apps/guard/tech-design`.
+- Validate: `aw td check tech-design`.
 
 ## Capability Map
 

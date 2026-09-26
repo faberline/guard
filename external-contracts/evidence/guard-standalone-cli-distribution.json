@@ -30,7 +30,7 @@
   ],
   "case_id": "guard-standalone-cli-distribution",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/distribution/standalone-cli-distribution.py",
+  "implementation": "external-contracts/src/distribution/standalone-cli-distribution.py",
   "mode": "behavior",
   "protocol": "aw.python-ec.evidence.v1"
 }

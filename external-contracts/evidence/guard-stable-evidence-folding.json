@@ -32,7 +32,7 @@
   ],
   "case_id": "guard-stable-evidence-folding",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/evidence/stable-evidence-folding.py",
+  "implementation": "external-contracts/src/evidence/stable-evidence-folding.py",
   "mode": "stability",
   "protocol": "aw.python-ec.evidence.v1"
 }

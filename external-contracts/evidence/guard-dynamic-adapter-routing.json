@@ -58,7 +58,7 @@
   ],
   "case_id": "guard-dynamic-adapter-routing",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/evidence/dynamic-adapter-routing.py",
+  "implementation": "external-contracts/src/evidence/dynamic-adapter-routing.py",
   "mode": "behavior",
   "protocol": "aw.python-ec.evidence.v1"
 }

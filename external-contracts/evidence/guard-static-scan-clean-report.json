@@ -19,7 +19,7 @@
   ],
   "case_id": "guard-static-scan-clean-report",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/scan/static-scan-clean-report.py",
+  "implementation": "external-contracts/src/scan/static-scan-clean-report.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

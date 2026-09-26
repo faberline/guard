@@ -19,7 +19,7 @@
   ],
   "case_id": "guard-baseline-static-policy",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/policy/baseline-static-policy.py",
+  "implementation": "external-contracts/src/policy/baseline-static-policy.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

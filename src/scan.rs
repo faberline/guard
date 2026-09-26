@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/guard/tech-design/src/scan.py
+// SPEC-MANAGED: tech-design/src/scan.py
 // HANDWRITE-BEGIN gap="python-td-rust-body" tracker="#2823" reason="Guard scan domain behavior remains native Rust"
 // @spec WI #2931: executable Python TD parity baseline.
 use std::fs;
@@ -16,7 +16,7 @@ use crate::policy::{include_diagnostic, map_severity, PolicyProfile};
 use crate::report::{finding_id, Finding, GuardReport, Location};
 
 #[derive(Debug, Clone)]
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 pub struct ScanOptions {
     pub profile: PolicyProfile,
     pub languages: Vec<Language>,
@@ -24,7 +24,7 @@ pub struct ScanOptions {
     pub evidence_commands: Vec<EvidenceCommand>,
 }
 
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 impl Default for ScanOptions {
     fn default() -> Self {
         Self {
@@ -43,7 +43,7 @@ impl Default for ScanOptions {
     }
 }
 
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 pub fn default_languages() -> Vec<Language> {
     vec![
         Language::Python,
@@ -67,7 +67,7 @@ pub fn default_languages() -> Vec<Language> {
 // behaves exactly as before. A waiver never invents a pass — it only suppresses
 // a finding whose rule (and optional path) a maintainer has documented.
 #[derive(Debug, Clone, Deserialize)]
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 pub struct Waiver {
     pub rule: String,
     #[serde(default)]
@@ -77,7 +77,7 @@ pub struct Waiver {
 }
 
 #[derive(Debug, Clone, Default, Deserialize)]
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 struct WaiverFile {
     #[serde(default)]
     waivers: Vec<Waiver>,
@@ -86,7 +86,7 @@ struct WaiverFile {
 // Load `<dir>/.guard/waivers.json`. Fail-safe: a missing file or any parse error
 // yields no waivers, so a broken waiver file keeps the scan strict rather than
 // silently passing.
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 fn load_waivers(target: &Path) -> Vec<Waiver> {
     let dir = if target.is_dir() {
         target.to_path_buf()
@@ -107,7 +107,7 @@ fn load_waivers(target: &Path) -> Vec<Waiver> {
 
 // `true` when `finding` matches a waiver: identical rule code, and — when the
 // waiver pins `path_contains` — the finding path contains that substring.
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 fn finding_is_waived(finding: &Finding, waivers: &[Waiver]) -> bool {
     waivers.iter().any(|waiver| {
         waiver.rule == finding.rule
@@ -119,12 +119,12 @@ fn finding_is_waived(finding: &Finding, waivers: &[Waiver]) -> bool {
     })
 }
 
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 pub fn scan_path(path: impl AsRef<Path>) -> GuardReport {
     scan_path_with_options(path, ScanOptions::default())
 }
 
-/// @spec apps/guard/tech-design/src/scan.py
+/// @spec tech-design/src/scan.py
 pub fn scan_path_with_options(path: impl AsRef<Path>, options: ScanOptions) -> GuardReport {
     let target = path.as_ref();
     let target_display = target.display().to_string();

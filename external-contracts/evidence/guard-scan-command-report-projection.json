@@ -19,7 +19,7 @@
   ],
   "case_id": "guard-scan-command-report-projection",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/scan/scan-command-report-projection.py",
+  "implementation": "external-contracts/src/scan/scan-command-report-projection.py",
   "mode": "behavior",
   "protocol": "aw.python-ec.evidence.v1"
 }

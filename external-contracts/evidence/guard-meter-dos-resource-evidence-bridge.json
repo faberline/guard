@@ -22,7 +22,7 @@
   ],
   "case_id": "guard-meter-dos-resource-evidence-bridge",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/evidence/meter-dos-resource-evidence-bridge.py",
+  "implementation": "external-contracts/src/evidence/meter-dos-resource-evidence-bridge.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

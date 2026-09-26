@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 EC_ROOT = Path(__file__).resolve().parents[1]
-REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
 SRC_ROOT = EC_ROOT / "src"
 INVENTORY_PATH = EC_ROOT / "pyproject.toml"
 

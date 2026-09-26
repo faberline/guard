@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
-# SPEC-MANAGED: apps/guard/tech-design/src/distribution.py
+# SPEC-MANAGED: tech-design/src/distribution.py
 # HANDWRITE-BEGIN: gap=existing-project-patch tracker=#2823
 set -eu
 

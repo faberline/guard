@@ -13,8 +13,8 @@ from pathlib import Path
 from typing import Iterator
 
 
-REPOSITORY_ROOT = Path(__file__).resolve().parents[4]
-TECH_DESIGN_ROOT = REPOSITORY_ROOT / "apps/guard/tech-design"
+REPOSITORY_ROOT = Path(__file__).resolve().parents[2]
+TECH_DESIGN_ROOT = REPOSITORY_ROOT / "tech-design"
 TECH_DESIGN_ENTRYPOINT = TECH_DESIGN_ROOT / "src/cli.py"
 ADAPTER_STUB = Path(__file__).resolve().with_name("adapter_stub.py")
 DYNAMIC_TMP_ROOT = REPOSITORY_ROOT / "target/guard-python-ec"

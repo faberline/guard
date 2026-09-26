@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/guard/tech-design/src/cli.py
+// SPEC-MANAGED: tech-design/src/cli.py
 // HANDWRITE-BEGIN gap="existing-project-patch" tracker="#2823" reason="Guard distribution CLI boundary remains native Rust"
 // @spec WI #2931: executable Python TD parity baseline.
 use std::path::PathBuf;
@@ -16,7 +16,7 @@ use clap::{Args, Parser, Subcommand, ValueEnum};
     about = "guard — security posture gate (JSON on stdout by default)",
     disable_help_subcommand = true
 )]
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub struct GuardCommand {
     #[command(subcommand)]
     pub verb: Verb,
@@ -25,7 +25,7 @@ pub struct GuardCommand {
 }
 
 #[derive(Args, Debug, Clone, Default)]
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub struct OutputOpts {
     /// Emit the report as a single dense line.
     #[arg(long, global = true)]
@@ -36,7 +36,7 @@ pub struct OutputOpts {
 }
 
 #[derive(Subcommand, Debug)]
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub enum Verb {
     /// Run the baseline static security profile over a file or directory.
     Scan(ScanArgs),
@@ -49,7 +49,7 @@ pub enum Verb {
 }
 
 #[derive(Args, Debug)]
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub struct ScanArgs {
     /// File or directory to scan.
     #[arg(default_value = ".")]
@@ -90,14 +90,14 @@ pub struct ScanArgs {
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, ValueEnum)]
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 pub enum ProfileArg {
     BaselineStatic,
     SecurityLint,
     Strict,
 }
 
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 impl From<ProfileArg> for PolicyProfile {
     fn from(value: ProfileArg) -> Self {
         match value {
@@ -108,7 +108,7 @@ impl From<ProfileArg> for PolicyProfile {
     }
 }
 
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub fn dispatch(cmd: GuardCommand) -> GuardReport {
     match cmd.verb {
         Verb::Scan(args) => {
@@ -278,7 +278,7 @@ fn stable_rust_path() -> String {
     )
 }
 
-/// @spec apps/guard/tech-design/src/cli.py
+/// @spec tech-design/src/cli.py
 pub fn print_report(report: &GuardReport, out: &OutputOpts) {
     let json = if out.compact {
         serde_json::to_string(report)

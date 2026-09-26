@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/guard/tech-design/src/policy.py
+// SPEC-MANAGED: tech-design/src/policy.py
 // HANDWRITE-BEGIN gap="python-td-rust-body" tracker="#2866" reason="Guard policy domain behavior remains native Rust"
 // @spec WI #2931: executable Python TD parity baseline.
 use compass::diagnostic::{DiagnosticCategory, DiagnosticSeverity};
@@ -6,14 +6,14 @@ use compass::diagnostic::{DiagnosticCategory, DiagnosticSeverity};
 use crate::report::Severity;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 pub enum PolicyProfile {
     BaselineStatic,
     SecurityLint,
     Strict,
 }
 
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 impl PolicyProfile {
     pub fn as_str(self) -> &'static str {
         match self {
@@ -24,7 +24,7 @@ impl PolicyProfile {
     }
 }
 
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 pub(crate) fn include_diagnostic(
     profile: PolicyProfile,
     category: DiagnosticCategory,
@@ -39,7 +39,7 @@ fn security_lint_rule(code: &str) -> bool {
     matches!(code, "DK002" | "JS007" | "JS008" | "SQL-INJ" | "TS102")
 }
 
-/// @spec apps/guard/tech-design/src/policy.py
+/// @spec tech-design/src/policy.py
 pub(crate) fn map_severity(profile: PolicyProfile, severity: DiagnosticSeverity) -> Severity {
     match (profile, severity) {
         (PolicyProfile::Strict, DiagnosticSeverity::Error)

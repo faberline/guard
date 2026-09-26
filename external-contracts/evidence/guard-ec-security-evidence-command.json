@@ -70,7 +70,7 @@
   ],
   "case_id": "guard-ec-security-evidence-command",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/evidence/ec-security-evidence-command.py",
+  "implementation": "external-contracts/src/evidence/ec-security-evidence-command.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

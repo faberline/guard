@@ -15,6 +15,6 @@ id = "guard-security-smoke"
 cmd = [
   "sh",
   "-c",
-  'exec "$VAT_CONFIG_ROOT/../../target/debug/rig" run --scenario tests/rig/scenarios/security/guard_self_scan.toml --compact',
+  'exec "rig" run --scenario tests/rig/scenarios/security/guard_self_scan.toml --compact',
 ]
 timeout_s = 120

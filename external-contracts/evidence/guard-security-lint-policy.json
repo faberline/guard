@@ -30,7 +30,7 @@
   ],
   "case_id": "guard-security-lint-policy",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/policy/security-lint-policy.py",
+  "implementation": "external-contracts/src/policy/security-lint-policy.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }

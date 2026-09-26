@@ -22,7 +22,7 @@
   ],
   "case_id": "guard-stable-security-metric-projection",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/report/stable-security-metric-projection.py",
+  "implementation": "external-contracts/src/report/stable-security-metric-projection.py",
   "mode": "stability",
   "protocol": "aw.python-ec.evidence.v1"
 }

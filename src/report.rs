@@ -1,4 +1,4 @@
-// SPEC-MANAGED: apps/guard/tech-design/src/report.py
+// SPEC-MANAGED: tech-design/src/report.py
 // HANDWRITE-BEGIN gap="python-td-rust-body" tracker="#2823" reason="Guard report domain behavior remains native Rust"
 // @spec WI #2931: executable Python TD parity baseline.
 use serde::{Deserialize, Serialize};
@@ -10,7 +10,7 @@ pub const SCHEMA_VERSION: &str = "guard.report/1";
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub enum Severity {
     Critical,
     High,
@@ -19,7 +19,7 @@ pub enum Severity {
     Info,
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 impl Severity {
     pub fn rank(self) -> u8 {
         match self {
@@ -38,14 +38,14 @@ impl Severity {
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(tag = "state", rename_all = "snake_case")]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub enum OverallStatus {
     Clean,
     Findings,
     ToolError { code: u8 },
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 impl OverallStatus {
     pub fn exit_code(self) -> i32 {
         match self {
@@ -61,7 +61,7 @@ impl OverallStatus {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct Location {
     pub path: String,
     pub start_line: u32,
@@ -71,7 +71,7 @@ pub struct Location {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct Finding {
     pub id: String,
     pub severity: Severity,
@@ -84,7 +84,7 @@ pub struct Finding {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct Summary {
     pub files_scanned: u32,
     pub diagnostics_scanned: u32,
@@ -100,7 +100,7 @@ pub struct Summary {
     pub truncated: bool,
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 impl Summary {
     pub fn from_findings(
         files_scanned: usize,
@@ -132,7 +132,7 @@ impl Summary {
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct Completion {
     pub clean: bool,
     pub criteria: Vec<String>,
@@ -140,7 +140,7 @@ pub struct Completion {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct IntegrationMap {
     pub static_engine: String,
     pub isolated_runner: String,
@@ -149,7 +149,7 @@ pub struct IntegrationMap {
     pub benchmark_budget: String,
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 impl Default for IntegrationMap {
     fn default() -> Self {
         Self {
@@ -163,7 +163,7 @@ impl Default for IntegrationMap {
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub struct GuardReport {
     pub schema_version: String,
     pub tool_version: String,
@@ -181,7 +181,7 @@ pub struct GuardReport {
     pub agent_prompt: String,
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 impl GuardReport {
     pub fn from_scan(
         target: impl Into<String>,
@@ -345,7 +345,7 @@ fn missing_integrations(evidence: &[ExternalEvidence]) -> Vec<String> {
     missing
 }
 
-/// @spec apps/guard/tech-design/src/report.py
+/// @spec tech-design/src/report.py
 pub fn finding_id(rule: &str, path: &str, line: u32) -> String {
     let subject = format!("{path}:{line}");
     let squashed: String = subject

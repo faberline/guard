@@ -19,7 +19,7 @@
   ],
   "case_id": "guard-compass-backed-diagnostic-scan",
   "exit_code": 0,
-  "implementation": "apps/guard/external-contracts/src/scan/compass-backed-diagnostic-scan.py",
+  "implementation": "external-contracts/src/scan/compass-backed-diagnostic-scan.py",
   "mode": "security",
   "protocol": "aw.python-ec.evidence.v1"
 }
